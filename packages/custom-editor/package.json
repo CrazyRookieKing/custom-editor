@@ -1,6 +1,6 @@
 {
   "name": "custom-editor",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "custom-editor",
   "main": "./dist/index.js",
   "module": "./dist/index.module.js",
@@ -30,7 +30,7 @@
     "type": "git",
     "url": "git+https://github.com/CrazyRookieKing/custom-editor.git"
   },
-  "homepage": "https://github.com/CrazyRookieKing/custom-editor.git",
+  "homepage": "https://github.com/CrazyRookieKing/custom-editor/tree/master/packages/custom-editor#readme",
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
