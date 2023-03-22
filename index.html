@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>测试 custom-editor</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <style>
+      #custom-editor-container {
+        width: 600px;
+        height: 300px;
+        border: 1px solid red;
+      }
+    </style>
+    <style>
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="custom-editor-container">
+      <raw-custom-editor id="custom-editor" value="select * from 'table'" width="400px" height="200px" resize="vertical"></raw-custom-editor>
+    </div>
+    <select id="languageSelect">
+      <option value ="sql">sql</option>
+      <option value ="xml">xml</option>
+      <option value="javascript">javascript</option>
+      <option value="go">go</option>
+    </select>
+
+    <button id="languageBtn">
+      更换语言
+    </button>
+    <button id="readonlyBtn">
+      点击切换可编辑
+    </button>
+
+    <select id="themeSelect">
+      <option value="a11y-dark">a11y-dark</option>
+      <option value="sunburst">sunburst</option>
+      <option value="night-owl">night-owl</option>
+      <option value="a11y-light">a11y-light</option>
+    </select>
+    <button id="themeBtn">
+      更换主题
+    </button>
+    <button id="themeBtn2">
+      更换主题通过 style
+    </button>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/sql.min.js" defer></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/xml.min.js" defer></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/javascript.min.js" defer></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/go.min.js" defer></script>
+    <script>
+      window.onload = function() {
+        // let url =  new URL('../highlight.js/styles/a11y-light.css', import.meta.url);
+        window['custom-editor'].default({name: 'raw-custom-editor'});
+        const darkStyle = 'pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#ddd;background:#303030}.hljs-keyword,.hljs-link,.hljs-literal,.hljs-section,.hljs-selector-tag{color:#fff}.hljs-addition,.hljs-attribute,.hljs-built_in,.hljs-bullet,.hljs-name,.hljs-string,.hljs-symbol,.hljs-template-tag,.hljs-template-variable,.hljs-title,.hljs-type,.hljs-variable{color:#d88}.hljs-comment,.hljs-deletion,.hljs-meta,.hljs-quote{color:#979797}.hljs-doctag,.hljs-keyword,.hljs-literal,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-strong,.hljs-title,.hljs-type{font-weight:700}.hljs-emphasis{font-style:italic}';
+
+        let languageSelect = document.getElementById("languageSelect");
+        let themeSelect = document.getElementById("themeSelect");
+        let languageBtn = document.getElementById("languageBtn");
+        let readonlyBtn = document.getElementById("readonlyBtn");
+        let themeBtn = document.getElementById("themeBtn");
+        let customEditor = document.getElementById("custom-editor");
+        
+        languageBtn.onclick = function() {
+          // customEditor.setAttribute("language", languageSelect.value);
+          // customEditor.setLanguage(languageSelect.value);
+          // customEditor.setLanguage(languageSelect.value);
+          // customEditor.setLanguage(languageSelect.value);
+          customEditor.value = 'abc';
+          customEditor.value = 'cdf';
+          customEditor.value = 'efj';
+        }
+
+        themeBtn.onclick = function() {
+          // customEditor.setAttribute("theme", themeSelect.value);
+          // let url =  new URL('../highlight.js/styles/'+ themeSelect.value +'.css', import.meta.url);
+          // customEditor.appendLink(url.href);
+          customEditor.appendLink('https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/' + themeSelect.value + '.min.css');
+        }
+
+
+        readonlyBtn.onclick = function() {
+          let readonly = customEditor.getAttribute("readonly");
+          if (readonly) {
+            customEditor.removeAttribute('readonly');
+          } else {
+            customEditor.setAttribute('readonly', 'readonly');
+            customEditor.setAttribute('readonly', 'a');
+            customEditor.setAttribute('readonly', '3');
+          }
+        }
+      
+    </script>
+    
+  </body>
+</html>

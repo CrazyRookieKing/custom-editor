@@ -1,0 +1,42 @@
+{
+    "compilerOptions": {
+        "target": "esnext", // 目标语言的版本
+        "module": "esnext", // 指定生成代码的模板标准
+        "strict": true, // 开启严格的类型检查
+        "jsx": "preserve",  
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "useDefineForClassFields": true,
+        "sourceMap": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"],
+        },
+        "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+
+        "resolveJsonModule": true,
+        "allowJs": true,
+        "noImplicitAny": false
+    },
+    "vueCompilerOptions": {
+        "experimentalCompatMode": 2,
+        "experimentalTemplateCompilerOptions": {
+            "compatConfig": {
+                "MODE": 2
+            }
+        }
+    },
+    // 编译需要的文件或目录
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        // "packages/custom-editor/**/*.ts",
+        // "node_modules/custom-editor/**/*.ts",
+    ],
+    // 要排除编译的文件或目录
+    "exclude": ["node_modules"]
+}
